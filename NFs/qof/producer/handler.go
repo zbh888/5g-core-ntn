@@ -71,3 +71,8 @@ func HandleSessionCreateQof(c *gin.Context) {
 		"message": "success",
 	})
 }
+
+func HandleSessionDeleteQof(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{})
+}
+
