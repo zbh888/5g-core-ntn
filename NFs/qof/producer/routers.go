@@ -67,7 +67,7 @@ var routes = Routes{
 	{
 		"HandleSessionDeleteQof",
 		"POST",
-		"/delete-session",
-		nil,
+		"/delete",
+		HandleSessionDeleteQof,
 	},
 }
