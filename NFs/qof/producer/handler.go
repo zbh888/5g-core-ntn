@@ -73,8 +73,7 @@ func HandleSessionCreateQof(c *gin.Context) {
 }
 
 func HandleSessionDeleteQof(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "success",
-	})
+	id := c.Params.ByName("sessionId")
+	c.JSON(200, gin.H{"success": "pdu #" + id + " deleted"})
 }
 
