@@ -44,7 +44,7 @@ func NTN5GSessionCreate(ntnSession *factory.NTNSession) error {
 	return nil
 }
 
-func SMFPduSessionDelete(id string)  {
+func SMFPduSessionDelete(id string) string  {
 
     // CAREFUL! TODO HARDCODE, we don't have smfUri for now
 	// var url string = fmt.Sprintf("%s/ntn-session/new-session", context.QOF_Self().SmfUri)
