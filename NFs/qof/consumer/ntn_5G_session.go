@@ -43,3 +43,31 @@ func NTN5GSessionCreate(ntnSession *factory.NTNSession) error {
 	logger.PduSessLog.Infoln(string(body))
 	return nil
 }
+
+func SMFPduSessionDelete(id string)  {
+
+    // CAREFUL! TODO HARDCODE, we don't have smfUri for now
+	// var url string = fmt.Sprintf("%s/ntn-session/new-session", context.QOF_Self().SmfUri)
+	var SmfUri = "http:/172.16.0.8:8000"
+    var url string = fmt.Sprintf("%s/nsmf-pdusession/v1/pdu-sessions/" + id + "/release", SmfUri)
+
+
+	client := http.Client{}
+
+	reqBody, err := json.Marshal(id)
+	if err != nil {
+		return err
+	}
+	resp, err := client.Post(url,
+		"application/json", bytes.NewBuffer(reqBody))
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return err
+	}
+	logger.PduSessLog.Infoln(string(body))
+	return string(body)
+}
