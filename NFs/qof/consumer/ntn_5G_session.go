@@ -48,7 +48,7 @@ func SMFPduSessionDelete(id string) string  {
 
     // CAREFUL! TODO HARDCODE, we don't have smfUri for now
 	// var url string = fmt.Sprintf("%s/ntn-session/new-session", context.QOF_Self().SmfUri)
-	var SmfUri = "http:/172.16.0.8:8000"
+	var SmfUri = "http://172.16.0.8:8000"
     var url string = fmt.Sprintf("%s/nsmf-pdusession/v1/pdu-sessions/" + id + "/release", SmfUri)
 
 
