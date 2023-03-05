@@ -66,8 +66,8 @@ var routes = Routes{
 	},
 	{
 		"HandleSessionDeleteQof",
-		"POST",
-		"/delete",
+		"DELETE",
+		"/delete-pdu/:sessionId",
 		HandleSessionDeleteQof,
 	},
 }
