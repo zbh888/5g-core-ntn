@@ -74,6 +74,7 @@ func HandleSessionCreateQof(c *gin.Context) {
 
 func HandleSessionDeleteQof(c *gin.Context) {
 	id := c.Params.ByName("sessionId")
-	c.JSON(200, gin.H{"success": "pdu #" + id + " deleted"})
+	body := consumer.SMFPduSessionDelete(id)
+	c.JSON(200, gin.H{"success": "pdu #" + id + " deleted", "body": body})
 }
 
