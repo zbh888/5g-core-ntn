@@ -54,19 +54,15 @@ func SMFPduSessionDelete(id string)  {
 
 	client := http.Client{}
 
-	reqBody, err := json.Marshal(id)
-	if err != nil {
-		return err
-	}
 	resp, err := client.Post(url,
-		"application/json", bytes.NewBuffer(reqBody))
+				 "application/json", bytes.NewBuffer([]byte(`{}`)))
 	if err != nil {
-		return err
+		return "ERR1"
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return err
+		return "ERR2"
 	}
 	logger.PduSessLog.Infoln(string(body))
 	return string(body)
