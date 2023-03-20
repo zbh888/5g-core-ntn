@@ -372,3 +372,9 @@ func HandleSessionCreateQof(c *gin.Context) {
 		"message": "success",
 	})
 }
+
+func HandleDeleteConnection(c *gin.Context) {}
+
+func HandleRecoverConnection(c *gin.Context) {
+	ip := c.Params.ByName("to")
+}
