@@ -373,8 +373,15 @@ func HandleSessionCreateQof(c *gin.Context) {
 	})
 }
 
-func HandleDeleteConnection(c *gin.Context) {}
+func HandleDeleteConnection(c *gin.Context) {
+	classifierCN := context.NTN_Self().Classifiers.CN
+	var url string = fmt.Sprintf("http://%s:%d/data-plane/cutoff", classifierCN.RegisterIPv4,classifierCN.Port)
+	c.JSON(200, gin.H{"success": "called", "body": url})
+}
 
 func HandleRecoverConnection(c *gin.Context) {
+	classifierCN := context.NTN_Self().Classifiers.CN
 	ip := c.Params.ByName("to")
+	var url string = fmt.Sprintf("http://%s:%d/data-plane/connect/%s", classifierCN.RegisterIPv4,classifierCN.Port, ip)
+	c.JSON(200, gin.H{"success": "called", "body": url})
 }
