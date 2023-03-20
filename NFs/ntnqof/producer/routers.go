@@ -70,4 +70,16 @@ var routes = Routes{
 		"/admission-control",
 		HandleAdmissionControl,
 	},
+	{
+		"DeleteConnection",
+		"DELETE",
+		"/cutoff",
+		HandleDeleteConnection,
+	},
+	{
+		"RecoverConnection",
+		"POST",
+		"/connect/:to",
+		HandleRecoverConnection,
+	},
 }
